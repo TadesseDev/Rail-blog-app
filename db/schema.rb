@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_09_180601) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_09_181837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
+    t.integer "authorId"
     t.string "title"
     t.text "text"
     t.integer "comentsCounter"
@@ -32,4 +33,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_09_180601) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "posts", "users", column: "authorId"
 end
