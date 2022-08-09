@@ -1,24 +1,72 @@
-# README
+# Blog app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> The Blog app will be a classic example of a blog website. I will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- ROR
+- Postgresql
 
-* System dependencies
+## Getting Started
 
-* Configuration
+1. Open [dev branch](https://github.com/Tadesse-Alemayehu/Rail-blog-app)
+2. Open VSCode or terminal and navigate to the folder where you would like to clone the project.
+3. Type "pwd" to see your working directory.
+4. [clone repository](https://github.com/Tadesse-Alemayehu/Rail-blog-app)
 
-* Database creation
+```bash
+$ git clone https://github.com/Tadesse-Alemayehu/Rail-blog-app
+```
 
-* Database initialization
+5. Install gem's by running
 
-* How to run the test suite
+```bash
+bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+6. Start server by running
 
-* Deployment instructions
+```bash
+rails s
+```
 
-* ...
+7. Enjoy 😎
+
+### Prerequisites
+
+You must have Ruby installed in your computer.
+You must have rails installed in your computer.
+
+### Clone this repo
+
+`git clone git@github.com:marilirulita/Rail-blog-app`
+
+### In your terminal:
+
+`ruby main.rb`
+
+## Authors
+
+👤 **Tadesse Alemayehu**
+
+- GitHub: [@Tadess-Alemayehu](https://github.com/Tadesse-Alemayehu)
+- Twitter: [@TadesseWebDev](https://twitter.com/TadesseWebDev)
+- LinkedIn: [Tadesse Alemayehu](https://www.linkedin.com/in/tadesse-alemayehu-60141a221/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to all our code reviewers and partners at Microverse.
+
+## 📝 License
+
+This project is [MIT](./LICENSE) licensed.
