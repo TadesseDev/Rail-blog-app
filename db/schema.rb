@@ -15,47 +15,47 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_10_112657) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "Author_id", null: false
-    t.bigint "post_id", null: false
+    t.bigint "user_id"
+    t.bigint "post_id"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Author_id"], name: "index_comments_on_Author_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.bigint "AuthorId_id", null: false
-    t.bigint "PostId_id", null: false
+    t.bigint "user_id"
+    t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["AuthorId_id"], name: "index_likes_on_AuthorId_id"
-    t.index ["PostId_id"], name: "index_likes_on_PostId_id"
+    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.bigint "AuthorId_id", null: false
+    t.bigint "user_id"
     t.string "title"
     t.text "text"
     t.integer "commentsCount"
     t.integer "likesCount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["AuthorId_id"], name: "index_posts_on_AuthorId_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "Name"
-    t.string "Photo"
-    t.string "Bio"
-    t.string "PostCount"
+    t.string "name"
+    t.string "photo"
+    t.string "bio"
+    t.string "postCount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users", column: "Author_id"
-  add_foreign_key "likes", "posts", column: "PostId_id"
-  add_foreign_key "likes", "users", column: "AuthorId_id"
-  add_foreign_key "posts", "users", column: "AuthorId_id"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "posts", "users"
 end
