@@ -32,5 +32,10 @@ RSpec.describe User, type: :model do
     end
   end
 
+  context "fail to save hence should not retrive invalid user" do
+    it "fail to save invalid user" do
+    expect(invalid_name_user.save).to eq false
+    end
+  end
 
 end
