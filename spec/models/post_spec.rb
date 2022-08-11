@@ -48,4 +48,12 @@ RSpec.describe Post, type: :model do
       expect(invalid_like_count_negative_post).not_to be_valid
     end
   end
+
+    context "most recent comment method works as expected" do
+    post=Post.first
+    it "it returns a valid type" do
+    recent_comment=Post.most_recent_comments(post);
+    expect(recent_comment.length).to be_a_kind_of(Integer)
+    end
+  end
 end
