@@ -24,4 +24,13 @@ RSpec.describe User, type: :model do
       expect(invalid_negative_post_count_user).not_to be_valid
     end
   end
+
+  context "save and retrive valid user" do
+    it "save valid user and retirive it from database" do
+      valid_user.save
+    expect(User.find(valid_user.id)).to be_an_instance_of(User)
+    end
+  end
+
+
 end
