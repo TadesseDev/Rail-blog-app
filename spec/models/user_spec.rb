@@ -41,4 +41,14 @@ RSpec.describe User, type: :model do
       expect(invalid_name_user.save).to eq false
     end
   end
+
+  context "most recent posts method works as expected" do
+    user=User.first
+    it "it returns a valid type" do
+    recent_posts=User.most_recent_posts(user);
+    puts recent_posts.class
+    expect(recent_posts.length).to be_a_kind_of(Integer)
+    end
+  end
+
 end
