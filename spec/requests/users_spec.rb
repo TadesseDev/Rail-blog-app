@@ -9,6 +9,10 @@ RSpec.describe "Users", type: :request do
     it "render the index template" do
       expect(response).to render_template(:index)
     end
+
+    it "users/index contains place holder text" do
+      expect(response.body).to match("this is the users index view")
+    end
   end
   describe "users show action tests" do
     before(:example) { get ("/users/:user_id")}
@@ -17,6 +21,10 @@ RSpec.describe "Users", type: :request do
     end
     it "render show template" do
       expect(response).to render_template(:show)
+    end
+
+    it "users/user_id contains place holder text" do
+      expect(response.body).to match("this is a user with ID")
     end
   end
 end
