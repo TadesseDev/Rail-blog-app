@@ -24,7 +24,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'users/user_id contains place holder text' do
-      expect(response.body).to match('this is a user with ID')
+      expect(response.body).to include('this is a user with ID')
     end
   end
 end
