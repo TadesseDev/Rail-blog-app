@@ -1,6 +1,15 @@
-<h1> this is a post with ID </h1>
   <div id="posts">
-    <%@posts.each_with_index do |post, index|%>
-    <%= render 'post', post: post, index: index+1 %>
-    <%end%>
+    Post: <%= @post.id%> BY <%= @post.user.name%>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempus imperdiet tortor nec pretium. Etiam id maximus risus. Nulla id faucibus elit. Sed magna justo, tempor ac lectus eu, pharetra scelerisque quam. Morbi ut cursus nulla, id elementum ex. Pellentesque vulputate fringilla laoreet. Aliquam id felis vitae nunc rutrum vulputate. Sed tristique in turpis vel sagittis. Sed euismod nibh blandit tortor gravida suscipit. Maecenas mollis lobortis eleifend. In non ultrices sem, id suscipit velit.
+
+Ut erat arcu, maximus non libero non, molestie mattis nibh. Aliquam massa odio, rutrum a sapien sed, commodo posuere ex. Morbi volutpat venenatis dolor a fringilla. Vivamus scelerisque tempus metus, vitae aliquet erat rutrum eget. Nunc consequat eros at neque venenatis pellentesque. Ut ornare, felis vel mollis viverra, tortor sapien auctor risus, a tristique urna magna ut massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec et turpis sollicitudin, faucibus turpis vitae, lacinia nisi. Nulla bibendum ornare tortor, non congue dui porttitor non. Maecenas quis lacinia dolor, vitae condimentum enim. Nullam fermentum, orci ac dignissim placerat, metus ex eleifend mi, eget luctus dolor nisl non augue. Pellentesque ac elit at sapien pulvinar egestas. Fusce ultrices convallis dignissim.
+    </p>
+    <div id="post-comments">
+        <% @comments=get_top_comments(@post)%>
+      <%@comments.each_with_index do |comment,index|
+      %>
+      <%= comment.user.name%> : comment <%=index+1%>
+      <%end%>
+      </div>
   </div>
