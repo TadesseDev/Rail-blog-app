@@ -50,3 +50,7 @@
 #user-detail button {
   align-self: center;
 }
+
+.like-comment {
+  text-align: right;
+}

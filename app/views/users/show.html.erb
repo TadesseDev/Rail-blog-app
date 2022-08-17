@@ -23,6 +23,9 @@
         <h2>Post: #<%=index%></h2>
         <h3><%= post.title%></h3>
         <p><%= post.text%></p>
+        <div class="like-comment">
+          <p>comments: <%= post.commentsCount%>, Likes: <%= post.likesCount%></p>
+        </div>
       </div>
     <%end%>
   <button type='submit'>See all posts</button>
