@@ -1,0 +1,27 @@
+.user {
+  display: flex;
+  gap: 2%;
+  justify-content: space-between;
+}
+
+.user > div {
+  border: 2px solid black;
+}
+
+.user .picture {
+  flex-basis: 20%;
+  max-width: 150px;
+  max-height: 150px;
+}
+.user .detail {
+  min-width: 75%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user .post-count {
+  align-self: end;
+  margin: 2px;
+}
