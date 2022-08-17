@@ -1,9 +1,28 @@
 
-      <div class="post">
-        <h2>Post: #<%=index%></h2>
-        <h3><%= post.title%></h3>
-        <p><%= post.text%></p>
-        <div class="like-comment">
-          <p>comments: <%= post.commentsCount%>, Likes: <%= post.likesCount%></p>
-        </div>
+<div id="user-posts">
+    <div  class="user">
+      <div class="picture">
+        <img src="<%= @user.photo%>" alt="user image here"/>
       </div>
+      <div class="detail">
+        <h1 class="name">
+          <%= @user.name%>
+        </h1>
+        <h3 class="post-count">
+          Number of Posts: <%= @user.postCount%>
+        </h3>
+      </div>
+  </div>
+  <div id="posts">
+    <%@posts.each_with_index do |post, index|%>
+      <%= render 'post', post: post, index: index+1 %>
+      <div id="post-comments">
+        <% @comments=get_top_comments(post)%>
+      <%@comments.each_with_index do |comment,index|
+      %>
+      <%= comment.user.name%> : comment <%=index+1%>
+      <%end%>
+      </div>
+    <%end%>
+  </div>
+</div>

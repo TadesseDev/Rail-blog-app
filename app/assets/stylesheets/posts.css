@@ -1,3 +1,26 @@
+#user-posts {
+  display: flex;
+  flex-direction: column;
+}
+
+.user {
+  display: grid;
+  gap: 2%;
+  grid-template-columns: 20% 78%;
+  margin: 10px 0px;
+}
+
+.user > div {
+  border: 2px solid black;
+}
+
+.user .detail {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #posts {
   display: flex;
   flex-direction: column;
@@ -11,4 +34,8 @@
 
 .like-comment {
   text-align: right;
+}
+
+#post-comments {
+  border: 2px solid black;
 }
