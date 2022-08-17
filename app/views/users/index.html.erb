@@ -1,2 +1,18 @@
-<h1> <h1> No of users: <%= @users.length %></h1>
-</h1>
+<h1> No of users: <%= @users.length %></h1>
+<% @user=@users[0] %>
+<div id="users-list">
+  <div class="user">
+    <div class="picture">
+      <img src="<%= @user.photo%>" alt="user image here"/>
+    </div>
+    <div class="detail">
+      <h1 class="name">
+        <%= @user.name%>
+      </h1>
+      <h3 class="post-count">
+        Number of Posts: <%= @user.postCount%>
+      </h3>
+    </div>
+  </div>
+</div>
+
