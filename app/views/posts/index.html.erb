@@ -1,1 +1,30 @@
-<h1> this is a post index </h1>
+
+<div id="user-posts">
+    <div  class="user">
+      <div class="picture">
+        <img src="<%= @user.photo%>" alt="user image here"/>
+      </div>
+      <div class="detail">
+        <h1 class="name">
+          <%= @user.name%>
+        </h1>
+        <h3 class="post-count">
+          Number of Posts: <%= @user.postCount%>
+        </h3>
+      </div>
+  </div>
+  <div id="posts">
+    <%@posts.each do |post|%>
+      <%= render 'post', post: post %>
+      <div id="post-comments">
+        <% @comments=get_top_comments(post)%>
+      <%@comments.each do |comment|
+      %>
+      <%= comment.user.name%> : comment <%=comment.id%>
+      <%end%>
+      </div>
+    <%end%>
+
+  <button type='submit'>Pagination</button>
+  </div>
+</div>

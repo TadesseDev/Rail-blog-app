@@ -1,1 +1,18 @@
-<h1> this is the users index view </h1>
+<div id="users-list">
+  <% @users.each do |user| %>
+  <a href="/users/<%=user.id%>" class="user">
+    <div class="picture">
+      <img src="<%= user.photo%>" alt="user image here"/>
+    </div>
+    <div class="detail">
+      <h1 class="name">
+        <%= user.name%>
+      </h1>
+      <h3 class="post-count">
+        Number of Posts: <%= user.postCount%>
+      </h3>
+    </div>
+  </a>
+  <%end%>
+</div>
+
