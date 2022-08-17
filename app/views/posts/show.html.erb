@@ -7,9 +7,9 @@ Ut erat arcu, maximus non libero non, molestie mattis nibh. Aliquam massa odio, 
     </p>
     <div id="post-comments">
         <% @comments=get_top_comments(@post)%>
-      <%@comments.each_with_index do |comment,index|
+      <%@comments.each do |comment|
       %>
-      <%= comment.user.name%> : comment <%=index+1%>
+      <%= comment.user.name%> : comment <%=comment.id%>
       <%end%>
       </div>
   </div>

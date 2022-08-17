@@ -1,9 +1,12 @@
+a {
+  color: black;
+  margin: 10px 1%;
+}
+
 .user {
   display: flex;
   gap: 2%;
   justify-content: space-between;
-  text-decoration: none;
-  color: black;
   margin: 10px 1%;
 }
 

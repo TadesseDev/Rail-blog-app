@@ -14,13 +14,13 @@
       </div>
   </div>
   <div id="posts">
-    <%@posts.each_with_index do |post, index|%>
-      <%= render 'post', post: post, index: index+1 %>
+    <%@posts.each do |post|%>
+      <%= render 'post', post: post %>
       <div id="post-comments">
         <% @comments=get_top_comments(post)%>
-      <%@comments.each_with_index do |comment,index|
+      <%@comments.each do |comment|
       %>
-      <%= comment.user.name%> : comment <%=index+1%>
+      <%= comment.user.name%> : comment <%=comment.id%>
       <%end%>
       </div>
     <%end%>
