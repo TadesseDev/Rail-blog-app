@@ -12,7 +12,7 @@ a {
   display: grid;
   gap: 2%;
   grid-template-columns: 20% 78%;
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 
 .user > div {
@@ -43,4 +43,8 @@ a {
 
 #post-comments {
   border: 2px solid black;
+}
+
+button {
+  align-self: center;
 }
