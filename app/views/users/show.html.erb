@@ -19,14 +19,7 @@
   </div>
   <div id="posts">
     <%@posts.each_with_index do |post, index|%>
-      <div class="post">
-        <h2>Post: #<%=index%></h2>
-        <h3><%= post.title%></h3>
-        <p><%= post.text%></p>
-        <div class="like-comment">
-          <p>comments: <%= post.commentsCount%>, Likes: <%= post.likesCount%></p>
-        </div>
-      </div>
+    <%= render '/posts/post', post: post, index: index+1 %>
     <%end%>
   <button type='submit'>See all posts</button>
   </div>
