@@ -1,1 +1,31 @@
-<h1> this is a user with ID</h1>
+
+<div id="user-detail">
+  <div href="/users/<%=@user.id%>" class="user">
+    <div class="picture">
+      <img src="<%= @user.photo%>" alt="user image here"/>
+    </div>
+    <div class="detail">
+      <h1 class="name">
+        <%= @user.name%>
+      </h1>
+      <h3 class="post-count">
+        Number of Posts: <%= @user.postCount%>
+      </h3>
+    </div>
+  </div>
+  <div id="bio">
+    <h2>Bio</h2>
+    <%= @user.bio%>
+  </div>
+  <div id="posts">
+    <%@posts.each_with_index do |post, index|%>
+      <div class="post">
+        <h2>Post: #<%=index%></h2>
+        <h3><%= post.title%></h3>
+        <p><%= post.text%></p>
+      </div>
+    <%end%>
+  <button type='submit'>See all posts</button>
+  </div>
+
+</div>

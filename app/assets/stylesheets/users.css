@@ -2,6 +2,9 @@
   display: flex;
   gap: 2%;
   justify-content: space-between;
+  text-decoration: none;
+  color: black;
+  margin: 10px 1%;
 }
 
 .user > div {
@@ -24,4 +27,26 @@
 .user .post-count {
   align-self: end;
   margin: 2px;
+}
+
+#user-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#user-detail #posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#user-detail #bio,
+#user-detail .post {
+  border: 2px solid black;
+  padding: 10px;
+}
+
+#user-detail button {
+  align-self: center;
 }
