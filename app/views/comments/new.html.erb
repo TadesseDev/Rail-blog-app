@@ -1,7 +1,5 @@
 <%= form_with model: [:user, :post, @comment], method: :post do |form|%>
 <%= form.label :text, "your comment please:"%><br/>
-<%= form.text_field :text%>
-<%= form.hidden_field :user, value: @user.id%>
-<%= form.hidden_field :post, value: @user.id%>
+<%= form.text_area :text%><br/>
 <%= form.submit%>
 <% end %>

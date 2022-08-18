@@ -11,13 +11,19 @@ class PostsController < ApplicationController
   end
 
   def new
-
+    puts params
+    @post=Post.new
   end
 
   def create
-
+    permit=post_permit
+    Post.create(user: current_user,title: permit[:title],text: permit[:text],commentsCount: 0, likesCount: 0)
   end
   def get_top_comments(post)
     Post.most_recent_comments(post)
+  end
+  private
+  def post_permit
+    params.require(:post).permit(:title,:text)
   end
 end

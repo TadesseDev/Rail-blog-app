@@ -1,8 +1,6 @@
 class CommentsController < ApplicationController
   def index; end
   def new
-    @user=current_user
-    @post=Post.first
     @comment=Comment.new
   end
 
