@@ -10,6 +10,13 @@ class PostsController < ApplicationController
     @post = Post.where(id: params[:id]).first
   end
 
+  def new
+
+  end
+
+  def create
+
+  end
   def get_top_comments(post)
     Post.most_recent_comments(post)
   end
