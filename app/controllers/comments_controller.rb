@@ -7,12 +7,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    permits=params.require(:comment).permit(:text)
+    permits=save_comment
     @comment=Comment.new(user: current_user,post: Post.where(id: params[:post_id]).first,text: permits[:text])
     puts @comment.save!
   end
   private
-  # def save_comment
-  #   params.require(:comments).permit(:user,:post,:text)
-  # end
+  def save_comment
+    params.require(:comment).permit(:text)
+  end
 end
