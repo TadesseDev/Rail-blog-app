@@ -6,12 +6,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    puts params
     @post = Post.where(id: params[:id]).first
   end
 
   def new
-    puts params
     @post = Post.new
   end
 
