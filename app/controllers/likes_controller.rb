@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   end
 
   def create
-    Likes.create(user: current_user,post: Post.where(id: params[:user_id]).first)
+    Like.create(user: current_user,post: Post.where(id: params[:user_id]).first)
   end
 
   def index
