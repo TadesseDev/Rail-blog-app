@@ -17,6 +17,7 @@
     <h2>Bio</h2>
     <%= @user.bio%>
   </div>
+  <a  href="/users/<%= @user.id%>/posts/new"> Create a new post </a>
   <div id="posts">
     <%@posts.each do |post|%>
     <%= render '/posts/post', post: post%>
