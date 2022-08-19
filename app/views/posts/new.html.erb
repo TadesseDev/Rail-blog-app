@@ -1,0 +1,7 @@
+<%= form_with model: [:user, @post], method: :post do |form|%>
+<%= form.label :title, "Post title:"%><br/>
+<%= form.text_field :title%><br/>
+<%= form.label :text, "your post content:"%><br/>
+<%= form.text_area :text%><br/>
+<%= form.submit%>
+<% end %>

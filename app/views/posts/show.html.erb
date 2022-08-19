@@ -11,5 +11,10 @@ Ut erat arcu, maximus non libero non, molestie mattis nibh. Aliquam massa odio, 
       %>
       <%= comment.user.name%> : comment <%=comment.id%>
       <%end%>
-      </div>
+      </div>      <%= form_with  url: user_post_likes_url(@post.user, @post), local: true, scope: :scop do |form|%>
+<%= form.submit value: 'like'%>
+<% end %>
+      <a  href="/users/<%= params[:user_id]%>/posts/<%= @post.id%>/comments/new"> Add comment
+
+
   </div>
