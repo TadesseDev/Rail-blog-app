@@ -12,4 +12,7 @@ Ut erat arcu, maximus non libero non, molestie mattis nibh. Aliquam massa odio, 
       <%= comment.user.name%> : comment <%=comment.id%>
       <%end%>
       </div>
+      <%= form_with model: @like, url: user_post_likes_path, local: true, scope: :scop do |form|%>
+<%= form.submit value: 'like'%>
+<% end %>
   </div>

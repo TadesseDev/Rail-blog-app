@@ -1,4 +1,5 @@
-      <a class="post" href="/users/<%=post.user.id%>/posts/<%=post.id%>">
+<div class="post" >
+      <a href="/users/<%=post.user.id%>/posts/<%=post.id%>">
         <h2>Post: #<%=post.id%></h2>
         <h3><%= post.title%></h3>
         <p><%= post.text%></p>
@@ -6,3 +7,6 @@
           <p>comments: <%= post.commentsCount%>, Likes: <%= post.likesCount%></p>
         </div>
       </a>
+
+
+</div>
