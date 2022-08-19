@@ -1,2 +1,4 @@
-<h1>Likes#new</h1>
-<p>Find me in app/views/likes/new.html.erb</p>
+<%= form_with model:[:user, :post, @like], method: :post do |form|%>
+<%= form.submit value: 'like'%>
+<% end %>
+
