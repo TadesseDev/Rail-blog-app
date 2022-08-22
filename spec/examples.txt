@@ -1,0 +1,6 @@
+example_id                                     | status  | run_time        |
+---------------------------------------------- | ------- | --------------- |
+./spec/system/index.html.ebrs_spec.rb[1:1]     | failed  | 0.76955 seconds |
+./spec/system/index.html.ebrs_spec.rb[1:2]     | pending | 0.00002 seconds |
+./spec/views/users/index.html.erb_spec.rb[1:1] | pending | 0.00002 seconds |
+./spec/views/users/index.html.erb_spec.rb[1:2] | passed  | 9 seconds       |
