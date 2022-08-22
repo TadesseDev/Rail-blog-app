@@ -11,6 +11,8 @@ gem 'rspec'
 
 gem 'ffi'
 
+gem "bullet"
+
 gem 'rails-controller-testing'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
