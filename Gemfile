@@ -11,6 +11,8 @@ gem 'rspec'
 
 gem 'ffi'
 
+gem 'devise'
+
 gem "bullet"
 
 gem 'rails-controller-testing'
