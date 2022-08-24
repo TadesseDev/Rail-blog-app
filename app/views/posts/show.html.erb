@@ -9,7 +9,7 @@
     <%= @post.text %>
   </p>
   <div id="post-comments">
-    <% @comments=(@post.comments.order(created_at: :ASC))%>
+    <% @comments=(@post.comments.includes(:user).order(created_at: :ASC))%>
     <%@comments.each do |comment|
       %>
     <%= comment.user.name%> : comment <%=comment.id%>
