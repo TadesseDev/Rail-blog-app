@@ -53,6 +53,18 @@ You must have rails installed in your computer.
 - Twitter: [@TadesseWebDev](https://twitter.com/TadesseWebDev)
 - LinkedIn: [Tadesse Alemayehu](https://www.linkedin.com/in/tadesse-alemayehu-60141a221/)
 
+👤 **Juan Luis Palacios**
+
+- GitHub: [@JuanLPalacios](https://github.com/JuanLPalacios)
+- Twitter: [@JuanLuisPalac20](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/juan-luis-palacios-p%C3%A9rez-95b39a228/)
+
+👤 **Joshua Ivie**
+
+- GitHub: [@joshuaivie](https://github.com/joshuaivie)
+- Twitter: [@joshuaivie\_](https://twitter.com/joshuaivie_)
+- LinkedIn: [joshuaivie](https://linkedin.com/in/joshuaivie)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
