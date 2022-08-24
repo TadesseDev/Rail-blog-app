@@ -1,30 +1,93 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  describe 'posts GET /index' do
-    before(:example) { get('/users/:user_id/posts') }
-    it 'response is ok for index' do
-      assert_response :ok
+  describe 'User post index page' do
+    before(:example) { visit user_posts_path(1) }
+    before(:all) do
+      @user = User.find(1)
     end
-    it 'render the right page' do
-      expect(response).to render_template(:index)
+    it "I can see the user's profile picture." do
+      expect(page).to have_xpath("//img[@src='#{@user.photo}']")
     end
-
-    it 'user/posts containes place holder text' do
-      expect(response.body).to match('this is a post index')
+    it "I can see the user's username." do
+      expect(page).to have_content(@user.name)
+    end
+    it 'I can see the number of posts the user has written.' do
+      expect(page).to have_content("Number of Posts: #{@user.postCount}")
+    end
+    it "I can see a post's title." do
+      @user.posts.each do |post|
+        expect(page).to have_content(post.title)
+      end
+    end
+    it "I can see some of the post's body." do
+      @user.posts.each do |post|
+        expect(page).to have_content(post.text[0..100])
+      end
+    end
+    it 'I can see the first comments on a post.' do
+      @user.posts.each do |post|
+        first_comment = post.comments.order(created_at: :desc).first
+        expect(page).to have_content(first_comment.text) unless first_comment.nil?
+      end
+    end
+    it 'I can see how many comments a post has.' do
+      @user.posts.each do |post|
+        expect(page).to have_content("comments: #{post.commentsCount}")
+      end
+    end
+    it 'I can see how many likes a post has.' do
+      @user.posts.each do |post|
+        expect(page).to have_content("Likes: #{post.likesCount}")
+      end
+    end
+    it 'I can see a section for pagination if there are more posts than fit on the view.' do
+      expect(page).to have_content('Pagination')
+    end
+    it "When I click on a post, it redirects me to that post's show page." do
+      @user.posts.each do |post|
+        find(:xpath, "//a[@href='/users/#{@user.id}/posts/#{post.id}']").click
+        expect(page).to have_current_path("/users/#{@user.id}/posts/#{post.id}")
+        visit user_posts_path(@user)
+      end
     end
   end
-  describe 'posts show action tests' do
-    before(:example) { get('/users/:user_id/posts/:id') }
-    it 'response is ok for show' do
-      expect(response).to have_http_status(:ok)
-    end
-    it 'render show template' do
-      expect(response).to render_template(:show)
+
+  describe 'Post show page' do
+    before(:example) do
+      @post_one = Post.find_by(id: 1)
+      @user_one = @post_one.user
+      visit user_post_path(@user_one, @post_one)
     end
 
-    it 'user/posts/id containes place holder text' do
-      expect(response.body).to include('post with ID')
+    before(:all) do
+      @post = Post.find_by(id: 1)
+      @user = @post.user
+    end
+    it "I can see the post's title." do
+      expect(page).to have_content(@post.title)
+    end
+    it 'I can see who wrote the post.' do
+      expect(page).to have_content(@user.name)
+    end
+    it 'I can see how many comments it has.' do
+      expect(page).to have_content("Comments: #{@post.commentsCount}")
+    end
+    it 'I can see how many likes it has.' do
+      expect(page).to have_content("Likes: #{@post.likesCount}")
+    end
+    it 'I can see the post body.' do
+      expect(page).to have_content(@post.text)
+    end
+    it 'I can see the username of each commentor.' do
+      @post.comments.each do |comment|
+        expect(page).to have_content(comment.user.name)
+      end
+    end
+    it 'I can see the comment each commentor left.' do
+      @post.comments.each do |comment|
+        expect(page).to have_content(comment.text)
+      end
     end
   end
 end
