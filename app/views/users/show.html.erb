@@ -11,6 +11,9 @@
       <h3 class="post-count">
         Number of Posts: <%= @user.postCount%>
       </h3>
+      <%= form_with url: destroy_user_session_path, method: :delete do |form| %>
+        <%= form.submit "Sign out" %>
+      <% end %>
     </div>
   </div>
   <div id="bio">
