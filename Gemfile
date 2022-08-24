@@ -9,6 +9,7 @@ gem 'rspec-rails'
 
 gem 'rspec'
 
+gem 'devise'
 gem 'ffi'
 
 gem 'bullet'
