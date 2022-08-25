@@ -1,3 +1,14 @@
-* {
-  color: red;
+#sign-in,
+#sign-up {
+  display: block;
+  margin: auto;
+  width: max-content;
+  text-align: center;
+  min-width: 40vw;
+}
+
+#sign-in input {
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
 }
