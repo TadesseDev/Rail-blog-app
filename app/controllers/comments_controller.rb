@@ -13,8 +13,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-     @comment=Comment.where(id: params[:id]).first
-     return unless can? :delete, @comment
+    @comment = Comment.where(id: params[:id]).first
+    return unless can? :delete, @comment
+
     @comment.destroy
     redirect_to user_post_path
   end

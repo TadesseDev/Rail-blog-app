@@ -20,8 +20,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-     @post=Post.where(id: params[:id].to_i).first
-     return unless can? :delete, @post
+    @post = Post.where(id: params[:id].to_i).first
+    return unless can? :delete, @post
+
     Comment.where(post: @post).destroy_all
     Like.where(post: @post).destroy_all
     @post.destroy
