@@ -14,4 +14,7 @@ class User < ApplicationRecord
   def self.most_recent_posts(user)
     Post.includes(:user).where(posts: { user: user }).order(created_at: :desc).limit(3)
   end
+  def admin?
+    return self.role == 'admin'
+  end
 end
