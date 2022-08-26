@@ -16,6 +16,17 @@ class PostsController < ApplicationController
   def create
     permit = post_permit
     Post.create(user: current_user, title: permit[:title], text: permit[:text], commentsCount: 0, likesCount: 0)
+    redirect_to user_path(current_user)
+  end
+
+  def destroy
+    @post = Post.where(id: params[:id].to_i).first
+    return unless can? :delete, @post
+
+    Comment.where(post: @post).destroy_all
+    Like.where(post: @post).destroy_all
+    @post.destroy
+    redirect_to user_posts_path
   end
 
   def get_top_comments(post)
