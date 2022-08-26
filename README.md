@@ -12,19 +12,8 @@
 1. Open [dev branch](https://github.com/Tadesse-Alemayehu/Rail-blog-app)
 2. Open VSCode or terminal and navigate to the folder where you would like to clone the project.
 3. Type "pwd" to see your working directory.
-4. [clone repository](https://github.com/Tadesse-Alemayehu/Rail-blog-app)
-
-```bash
-$ git clone https://github.com/Tadesse-Alemayehu/Rail-blog-app
-```
-
-5. Install gem's by running
-
-```bash
-bundle install
-```
-
-6. Start server by running
+4. [clone repository] Install gems by running
+   Start the server by running
 
 ```bash
 rails s
@@ -34,8 +23,8 @@ rails s
 
 ### Prerequisites
 
-You must have Ruby installed in your computer.
-You must have rails installed in your computer.
+You must have Ruby installed on your computer.
+You must have rails installed on your computer.
 
 ### Clone this repo
 

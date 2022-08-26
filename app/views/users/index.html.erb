@@ -1,4 +1,7 @@
 <div id="users-list">
+        <%= form_with url: destroy_user_session_path, method: :delete do |form| %>
+        <%= form.submit "Sign out" %>
+      <% end %>
   <% @users.each do |user| %>
   <a href="/users/<%=user.id%>" class="user">
     <div class="picture">
