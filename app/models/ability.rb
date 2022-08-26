@@ -7,9 +7,13 @@ class Ability
     # Define abilities for the user here. For example:
     #
       return unless user.present?
-      can :read, :all
-      return unless user.admin?
+      if user.admin?
       can :manage, :all
+      else
+        can :read, :all
+        can :delete, Comment, user: user
+        can :delete, Post, user: user
+      end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
