@@ -13,9 +13,11 @@
     <%@comments.each do |comment|
       %>
 <div><%= comment.user.name%> : comment <%=comment.id%>
+      <% if can? :delete, comment %>
     <%= button_to "Delete comment",
     user_post_comment_path(current_user,@post.id,comment),
      method: :delete %>
+     <%end%>
     </div>
   <%end%>
 </div>
@@ -23,5 +25,8 @@
   <%= form.submit value: 'like'%>
 <% end %>
 <a  href="/users/<%= params[:user_id]%>/posts/<%= @post.id%>/comments/new"> Add comment </a>
+<%= button_to 'Home', user_path(current_user), method: "get"%>
+      <% if can? :delete, @post %>
 <%= button_to "Delete post", user_post_path, method: :delete %>
+  <%end%>
 </div>
