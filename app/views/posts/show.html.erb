@@ -12,7 +12,9 @@
     <% @comments=(@post.comments.includes(:user).order(created_at: :ASC))%>
     <%@comments.each do |comment|
       %>
-    <%= comment.user.name%> : comment <%=comment.id%>
+<div><%= comment.user.name%> : comment <%=comment.id%>
+    <%= button_to "Delete comment", user_post_comment, method: :delete %>
+    </div>
   <%end%>
 </div>
 <%= form_with  url: user_post_likes_url(@post.user, @post), local: true, scope: :scop do |form|%>

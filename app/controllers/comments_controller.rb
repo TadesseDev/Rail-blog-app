@@ -12,12 +12,11 @@ class CommentsController < ApplicationController
     redirect_to user_post_path(current_user, params[:post_id])
   end
 
-
   def destroy
      @comment=Post.where(id: params[:comment_id].to_i).first
      return unless can? :delete, @comment
     @post.destroy
-    redirect_to user_posts_path
+    redirect_to user_post_path
   end
 
   private
