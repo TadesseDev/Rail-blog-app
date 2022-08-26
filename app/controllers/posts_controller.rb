@@ -19,6 +19,12 @@ class PostsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def destroy
+     @post=Post.where(params[:user_id]).first
+     return unless can? :delete, @post
+    @post.destroy
+  end
+
   def get_top_comments(post)
     Post.most_recent_comments(post)
   end

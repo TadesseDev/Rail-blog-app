@@ -19,4 +19,5 @@
   <%= form.submit value: 'like'%>
 <% end %>
 <a  href="/users/<%= params[:user_id]%>/posts/<%= @post.id%>/comments/new"> Add comment
+<%= button_to "Delete this post", :action => :destroy %>
 </div>
