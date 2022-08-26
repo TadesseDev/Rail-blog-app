@@ -22,8 +22,10 @@ class PostsController < ApplicationController
   def destroy
      @post=Post.where(id: params[:id].to_i).first
      return unless can? :delete, @post
+    Comment.where(post: @post).destroy_all
+    Like.where(post: @post).destroy_all
     @post.destroy
-    redirect_to user_post_path
+    redirect_to user_posts_path
   end
 
   def get_top_comments(post)
