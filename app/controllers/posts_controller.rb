@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def create
     permit = post_permit
-    Post.create(user: current_user, title: permit[:title], text: permit[:text], commentsCount: 0, likesCount: 0)
+    Post.create(user: current_user, title: permit[:title], text: permit[:text])
     redirect_to user_path(current_user)
     respond_to do |format|
       format.html
