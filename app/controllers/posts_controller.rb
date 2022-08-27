@@ -5,10 +5,10 @@ class PostsController < ApplicationController
     @user = User.where(id: params[:user_id]).first
     @posts = Post.includes(:user).where(posts: { user_id: params[:user_id] })
     respond_to do |format|
-        format.html # index.html.erb
-        format.xml  { render :xml => @posts }
-        format.json { render :json => @posts }
-      end
+      format.html # index.html.erb
+      format.xml { render xml: @posts }
+      format.json { render json: @posts }
+    end
   end
 
   def show
@@ -23,10 +23,10 @@ class PostsController < ApplicationController
     permit = post_permit
     Post.create(user: current_user, title: permit[:title], text: permit[:text], commentsCount: 0, likesCount: 0)
     redirect_to user_path(current_user)
-        respond_to do |format|
-        format.html
-        format.json { head :no_content }
-      end
+    respond_to do |format|
+      format.html
+      format.json { head :no_content }
+    end
   end
 
   def destroy
