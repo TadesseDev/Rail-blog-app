@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     redirect_to new_user_session_path unless user_signed_in?
     @user = User.where(id: params[:user_id]).first
     @posts = Post.includes(:user).where(posts: { user_id: params[:user_id] })
+    # return list of users as a json, cxml, or the deafult html.
     respond_to do |format|
         format.html # index.html.erb
         format.xml  { render :xml => @posts }
