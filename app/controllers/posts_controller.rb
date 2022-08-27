@@ -1,8 +1,14 @@
 class PostsController < ApplicationController
   helper_method :get_top_comments
   def index
+    redirect_to new_user_session_path unless user_signed_in?
     @user = User.where(id: params[:user_id]).first
     @posts = Post.includes(:user).where(posts: { user_id: params[:user_id] })
+    respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @posts }
+        format.json { render :json => @posts }
+      end
   end
 
   def show
