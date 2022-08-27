@@ -23,7 +23,10 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.where(id: params[:id]).first
     return unless can? :delete, @comment
-
+    respond_to do |format|
+        format.html
+        format.json { head :no_content }
+      end
     @comment.destroy
     redirect_to user_post_path
   end
