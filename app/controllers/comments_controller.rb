@@ -1,14 +1,16 @@
 class CommentsController < ApplicationController
   def index
     redirect_to new_user_session_path unless user_signed_in?
+
     @comments=Comment.where(id: params[:post_id])
 
     # List all comments for the users as a json, xml, or the deafult, html
+
     respond_to do |format|
-        format.html # index.html.erb
-        format.xml  { render :xml => @comments }
-        format.json { render :json => @comments }
-      end
+      format.html # index.html.erb
+      format.xml { render xml: @comments }
+      format.json { render json: @comments }
+    end
   end
 
   def new
@@ -29,6 +31,11 @@ class CommentsController < ApplicationController
     @comment = Comment.where(id: params[:id]).first
     return unless can? :delete, @comment
 
+
+    respond_to do |format|
+      format.html
+      format.json { head :no_content }
+    end
     @comment.destroy
     redirect_to user_post_path
   end
