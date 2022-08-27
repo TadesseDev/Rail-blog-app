@@ -1,5 +1,13 @@
 class CommentsController < ApplicationController
-  def index; end
+  def index
+    redirect_to new_user_session_path unless user_signed_in?
+    @comments=Comment.where(id: params[:post_id])
+    respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @comments }
+        format.json { render :json => @comments }
+      end
+  end
 
   def new
     @comment = Comment.new
