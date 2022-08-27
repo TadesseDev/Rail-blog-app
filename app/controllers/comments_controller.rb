@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def index
     redirect_to new_user_session_path unless user_signed_in?
     @comments = Comment.where(id: params[:post_id])
+    List all comments for the users as a json, xml, or the deafult, html
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render xml: @comments }
